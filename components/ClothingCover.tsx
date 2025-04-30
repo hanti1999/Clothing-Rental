@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils';
-import React from 'react';
 import Image from 'next/image';
+import React from 'react';
+import { cn } from '@/lib/utils';
 
 type ClothingCoverVariant =
   | 'extraSmall'
@@ -9,8 +9,8 @@ type ClothingCoverVariant =
   | 'regular'
   | 'wide';
 
-const variantStyle: Record<ClothingCoverVariant, string> = {
-  extraSmall: 'clothing-cover_extra-small',
+const variantStyles: Record<ClothingCoverVariant, string> = {
+  extraSmall: 'clothing-cover_extra_small',
   small: 'clothing-cover_small',
   medium: 'clothing-cover_medium',
   regular: 'clothing-cover_regular',
@@ -20,24 +20,21 @@ const variantStyle: Record<ClothingCoverVariant, string> = {
 interface IProps {
   className?: string;
   variant?: ClothingCoverVariant;
-  coverColor?: string;
   coverImage?: string;
 }
 const ClothingCover = ({
   className,
   variant = 'regular',
-  coverColor = '#012B48',
   coverImage = 'https://placehold.co/400x600.png',
 }: IProps) => {
   return (
     <div
       className={cn(
-        'relative, transition-all duration-300',
-        variantStyle[variant],
+        'relative transition-all duration-300',
+        variantStyles[variant],
         className
       )}
     >
-      CLOTHING SVG
       <div
         className='absolute z-10'
         style={{ left: '12%', width: '87.5%', height: '88%' }}
@@ -46,7 +43,7 @@ const ClothingCover = ({
           src={coverImage}
           alt='clothing-cover'
           fill
-          className='rouned-sm object-fill'
+          className='rounded-sm object-fill'
         />
       </div>
     </div>

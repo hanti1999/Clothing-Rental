@@ -8,6 +8,7 @@ interface IClothing {
   available_stock: number;
   description: string;
   color: string;
+  size: string;
   cover: string;
   video: string;
   summary: string;

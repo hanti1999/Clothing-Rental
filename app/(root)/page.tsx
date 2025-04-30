@@ -1,5 +1,5 @@
-import ClothingList from '@/components/ClothingList';
 import ClothingOverview from '@/components/ClothingOverview';
+import ClothingList from '@/components/ClothingList';
 import { sampleClothing } from '@/constants';
 
 const Home = () => (
@@ -9,7 +9,7 @@ const Home = () => (
     <ClothingList
       title='Sản phẩm mới nhất!'
       clothing={sampleClothing}
-      contaiderClassName='mt-28'
+      containerClassName='mt-28'
     />
   </>
 );
