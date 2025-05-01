@@ -1,25 +1,14 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import {
-  DefaultValues,
-  FieldValues,
-  Path,
-  SubmitHandler,
-  useForm,
-  UseFormReturn,
-} from 'react-hook-form';
+import { SubmitHandler, useForm, UseFormReturn } from 'react-hook-form';
+import { DefaultValues, FieldValues, Path } from 'react-hook-form';
 import { ZodType } from 'zod';
-import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
 import Link from 'next/link';
-import { FIELD_NAMES, FIELD_TYPES } from '@/constants';
+import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
+import { FormLabel, FormMessage } from '@/components/ui/form';
+import { CONVERT_FIELD_TYPES as CFT } from '@/constants';
+import { CONVERT_FIELD_NAME as CFN } from '@/constants';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import ImageUpload from './ImageUpload';
 
 interface IProps<T extends FieldValues> {
@@ -63,18 +52,14 @@ const AuthForm = <T extends FieldValues>({
               name={field as Path<T>}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    {FIELD_NAMES[field.name as keyof typeof FIELD_NAMES]}
-                  </FormLabel>
+                  <FormLabel>{CFN[field.name as keyof typeof CFN]}</FormLabel>
                   <FormControl>
                     {field.name === 'profileImage' ? (
-                      <ImageUpload />
+                      <ImageUpload onFileChange={field.onChange} />
                     ) : (
                       <Input
                         required
-                        type={
-                          FIELD_TYPES[field.name as keyof typeof FIELD_TYPES]
-                        }
+                        type={CFT[field.name as keyof typeof CFT]}
                         {...field}
                         className='form-input'
                       />

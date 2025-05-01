@@ -90,7 +90,7 @@
   }
 
   .form-input {
-    @apply w-full min-h-14 border-none text-base font-bold placeholder:font-normal text-white placeholder:text-light-100 focus-visible:ring-0 focus-visible:shadow-none bg-dark-300;
+    @apply w-full min-h-14 border-none text-base font-bold placeholder:font-normal text-white placeholder:text-light-100 focus-visible:ring-0 focus-visible:shadow-none !bg-dark-300;
   }
 
   /* clothing Card */
@@ -180,7 +180,7 @@
 
   /* File Upload */
   .upload-btn {
-    @apply flex min-h-14 w-full items-center justify-center gap-1.5 rounded-md;
+    @apply flex min-h-14 w-full items-center justify-center gap-1.5 rounded-md !bg-dark-300;
   }
 
   .upload-filename {

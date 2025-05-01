@@ -1,8 +1,8 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import ClothingCover from './ClothingCover';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
+import ClothingCover from './ClothingCover';
 import { Button } from './ui/button';
 
 const ClothingCard = ({

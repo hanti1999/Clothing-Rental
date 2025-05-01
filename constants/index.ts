@@ -40,14 +40,14 @@ export const adminSideBarLinks = [
   },
 ];
 
-export const FIELD_NAMES = {
+export const CONVERT_FIELD_NAME = {
   fullName: 'Tên của bạn',
   email: 'Email',
-  profileImage: 'Ảnh hồ sơn',
+  profileImage: 'Ảnh hồ sơ',
   password: 'Mật khẩu',
 };
 
-export const FIELD_TYPES = {
+export const CONVERT_FIELD_TYPES = {
   fullName: 'text',
   email: 'email',
   password: 'password',
