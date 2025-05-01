@@ -41,9 +41,10 @@ export const adminSideBarLinks = [
 ];
 
 export const FIELD_NAMES = {
-  fullName: 'Full name',
+  fullName: 'Tên của bạn',
   email: 'Email',
-  password: 'Password',
+  profileImage: 'Ảnh hồ sơn',
+  password: 'Mật khẩu',
 };
 
 export const FIELD_TYPES = {
