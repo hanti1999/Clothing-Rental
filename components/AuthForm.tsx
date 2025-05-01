@@ -9,7 +9,7 @@ import { CONVERT_FIELD_NAME as CFN } from '@/constants';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import ImageUpload from './ImageUpload';
+import FileUpload from './FileUpload';
 
 interface IProps<T extends FieldValues> {
   schema: ZodType<T>;
@@ -55,7 +55,14 @@ const AuthForm = <T extends FieldValues>({
                   <FormLabel>{CFN[field.name as keyof typeof CFN]}</FormLabel>
                   <FormControl>
                     {field.name === 'profileImage' ? (
-                      <ImageUpload onFileChange={field.onChange} />
+                      <FileUpload
+                        type='image'
+                        accept='image/*'
+                        placeholder='Chọn ảnh đại diện'
+                        folder='ids'
+                        variant='dark'
+                        onFileChange={field.onChange}
+                      />
                     ) : (
                       <Input
                         required
