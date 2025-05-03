@@ -9,7 +9,7 @@ const ClothingCard = ({
   id,
   title,
   style,
-  cover,
+  coverUrl,
   isLoaned = false,
 }: IClothing) => {
   return (
@@ -18,7 +18,7 @@ const ClothingCard = ({
         href={`/clothing/${id}`}
         className={cn(isLoaned && 'w-full flex flex-col items-center')}
       >
-        <ClothingCover coverImage={cover} />
+        <ClothingCover coverImage={coverUrl} />
         <div className={cn('mt-4', !isLoaned && 'xs:max-w-40 max-w-28')}>
           <p className='clothing-title'>{title}</p>
           <p className='clothing-style'>{style}</p>

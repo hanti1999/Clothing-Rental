@@ -8,12 +8,12 @@ const ClothingOverview = ({
   brand,
   style,
   rating,
-  total_stock,
-  available_stock,
+  totalStock,
+  availableStock,
   description,
   color,
   size,
-  cover,
+  coverUrl,
 }: IClothing) => {
   return (
     <div className='clothing-overview'>
@@ -38,10 +38,10 @@ const ClothingOverview = ({
 
         <div className='clothing-stock'>
           <p>
-            Tổng: <span>{total_stock}</span> sản phẩm
+            Tổng: <span>{totalStock}</span> sản phẩm
           </p>
           <p>
-            Còn lại: <span>{available_stock}</span> sản phẩm
+            Còn lại: <span>{availableStock}</span> sản phẩm
           </p>
         </div>
 
@@ -72,10 +72,14 @@ const ClothingOverview = ({
 
       <div className='relative flex flex-1 justify-center'>
         <div className='relative'>
-          <ClothingCover variant='wide' className='z-10' coverImage={cover} />
+          <ClothingCover
+            variant='wide'
+            className='z-10'
+            coverImage={coverUrl}
+          />
 
           <div className='absolute left-16 top-10 rotate-12 opacity-40 max-sm:hidden'>
-            <ClothingCover variant='wide' coverImage={cover} />
+            <ClothingCover variant='wide' coverImage={coverUrl} />
           </div>
         </div>
       </div>

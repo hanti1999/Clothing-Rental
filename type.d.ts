@@ -4,13 +4,21 @@ interface IClothing {
   brand: string;
   style: string;
   rating: number;
-  total_stock: number;
-  available_stock: number;
+  totalStock: number;
+  availableStock: number;
   description: string;
   color: string;
   size: string;
-  cover: string;
-  video: string;
+  coverUrl: string;
+  videoUrl: string;
   summary: string;
   isLoaned?: boolean;
+  createdAt: Date | null;
+}
+
+interface AuthCredentials {
+  fullName: string;
+  email: string;
+  password: string;
+  profileImage: string;
 }

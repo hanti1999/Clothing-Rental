@@ -61,13 +61,13 @@ export const sampleClothing = [
     brand: 'Other',
     style: 'Shirt / Skirt',
     rating: 4.6,
-    total_stock: 20,
-    available_stock: 10,
+    totalStock: 20,
+    availableStock: 10,
     description: 'Váy đẹp theo nàng vui chơi.',
     color: '#1c1f40',
-    cover:
+    coverUrl:
       'https://down-vn.img.susercontent.com/file/vn-11134207-7ra0g-m6fcrbcaopco39.webp',
-    video: '/sample-video.mp4?updatedAt=1722593504152',
+    videoUrl: '/sample-video.mp4?updatedAt=1722593504152',
     summary: 'Váy đẹp theo nàng vui chơi. Là lá la',
   },
   {
@@ -77,13 +77,13 @@ export const sampleClothing = [
     brand: 'Other',
     style: 'Shirt / Skirt',
     rating: 4.9,
-    total_stock: 99,
-    available_stock: 50,
+    totalStock: 99,
+    availableStock: 50,
     description: 'Váy đẹp theo nàng vui chơi',
     color: '#fffdf6',
-    cover:
+    coverUrl:
       'https://down-vn.img.susercontent.com/file/vn-11134201-7ra0g-m6zhtdchkhuv1d.webp',
-    video: '/sample-video.mp4?updatedAt=1722593504152',
+    videoUrl: '/sample-video.mp4?updatedAt=1722593504152',
     summary: 'Váy đẹp theo nàng vui chơi. Là lá la',
   },
   {
@@ -93,13 +93,13 @@ export const sampleClothing = [
     brand: 'Other',
     style: 'Shirt / Pants',
     rating: 4.7,
-    total_stock: 9,
-    available_stock: 5,
+    totalStock: 9,
+    availableStock: 5,
     description: 'Váy đẹp theo nàng vui chơi.',
     color: '#f8e036',
-    cover:
+    coverUrl:
       'https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljjm8ito1p8iad.webp',
-    video: '/sample-video.mp4?updatedAt=1722593504152',
+    videoUrl: '/sample-video.mp4?updatedAt=1722593504152',
     summary: 'Váy đẹp theo nàng vui chơi. Là lá la',
   },
   {
@@ -109,13 +109,13 @@ export const sampleClothing = [
     brand: 'Other',
     style: 'Shirt / Skirt',
     rating: 4.5,
-    total_stock: 78,
-    available_stock: 50,
+    totalStock: 78,
+    availableStock: 50,
     description: 'Váy đẹp theo nàng vui chơi.',
     color: '#ed6322',
-    cover:
+    coverUrl:
       'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m5wvipjaiz9ff4.webp',
-    video: '/sample-video.mp4?updatedAt=1722593504152',
+    videoUrl: '/sample-video.mp4?updatedAt=1722593504152',
     summary: 'Váy đẹp theo nàng vui chơi. Là lá la',
   },
   {
@@ -125,13 +125,13 @@ export const sampleClothing = [
     brand: 'Other',
     style: 'Shirt / Skirt',
     rating: 4.7,
-    total_stock: 23,
-    available_stock: 23,
+    totalStock: 23,
+    availableStock: 23,
     description: 'Váy đẹp theo nàng vui chơi.',
     color: '#ffffff',
-    cover:
+    coverUrl:
       'https://down-vn.img.susercontent.com/file/vn-11134208-7r98o-lv33xowhcqsab5@resize_w875_nl.webp',
-    video: '/sample-video.mp4?updatedAt=1722593504152',
+    videoUrl: '/sample-video.mp4?updatedAt=1722593504152',
     summary: 'Váy đẹp theo nàng vui chơi. Là lá la',
   },
   {
@@ -141,13 +141,13 @@ export const sampleClothing = [
     brand: 'Other',
     style: 'Shirt / Skirt',
     rating: 4.8,
-    total_stock: 56,
-    available_stock: 56,
+    totalStock: 56,
+    availableStock: 56,
     description: 'Váy đẹp theo nàng vui chơi. Là lá la',
     color: '#080c0d',
-    cover:
+    coverUrl:
       'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lssjffjpk97df9.webp',
-    video: '/sample-video.mp4?updatedAt=1722593504152',
+    videoUrl: '/sample-video.mp4?updatedAt=1722593504152',
     summary: 'Váy đẹp theo nàng vui chơi. Là lá la',
   },
   {
@@ -157,13 +157,13 @@ export const sampleClothing = [
     brand: 'Other',
     style: 'Dress',
     rating: 4.8,
-    total_stock: 25,
-    available_stock: 3,
+    totalStock: 25,
+    availableStock: 3,
     description: 'Váy đẹp theo nàng vui chơi. Là lá la',
     color: '#100f15',
-    cover:
+    coverUrl:
       'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lugoihq56iw56c.webp',
-    video: '/sample-video.mp4?updatedAt=1722593504152',
+    videoUrl: '/sample-video.mp4?updatedAt=1722593504152',
     summary: 'Váy đẹp theo nàng vui chơi. Là lá la',
   },
   {
@@ -173,13 +173,13 @@ export const sampleClothing = [
     brand: 'Other',
     style: 'Dress',
     rating: 4.8,
-    total_stock: 10,
-    available_stock: 5,
+    totalStock: 10,
+    availableStock: 5,
     description: 'Váy đẹp theo nàng vui chơi. Là lá la',
     color: '#ffffff',
-    cover:
+    coverUrl:
       'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lvysoxizwvdn26.webp',
-    video: '/sample-video.mp4?updatedAt=1722593504152',
+    videoUrl: '/sample-video.mp4?updatedAt=1722593504152',
     summary: 'Váy đẹp theo nàng vui chơi. Là lá la',
   },
 ];

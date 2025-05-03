@@ -1,22 +1,25 @@
 'use client';
-import {
-  ImageKitAbortError,
-  ImageKitInvalidRequestError,
-  upload,
-} from '@imagekit/next';
-import {
-  ImageKitUploadNetworkError,
-  ImageKitServerError,
-} from '@imagekit/next';
 import { useRef, useState } from 'react';
-import Image from 'next/image';
 import { toast } from 'sonner';
-import config from '@/lib/config';
+import Image from 'next/image';
+import { ImageKitUploadNetworkError, ImageKitAbortError } from '@imagekit/next';
+import { ImageKitServerError, upload } from '@imagekit/next';
+import { ImageKitInvalidRequestError } from '@imagekit/next';
 import { cn } from '@/lib/utils';
+
+interface Props {
+  type: 'image' | 'video';
+  accept: string;
+  placeholder: string;
+  folder: string;
+  variant: 'dark' | 'light';
+  onFileChange: (filePath: string) => void;
+  value?: string;
+}
 
 const authenticator = async () => {
   try {
-    const response = await fetch(`${config.env.apiEndpoint}/api/auth/imagekit`);
+    const response = await fetch(`/api/upload-auth`);
     if (!response.ok) {
       const errorText = await response.text();
       throw new Error(
@@ -31,25 +34,7 @@ const authenticator = async () => {
   }
 };
 
-interface Props {
-  type: 'image' | 'video';
-  accept: string;
-  placeholder: string;
-  folder: string;
-  variant: 'dark' | 'light';
-  onFileChange: (filePath: string) => void;
-  value?: string;
-}
-
-const FileUpload = ({
-  type,
-  accept,
-  placeholder,
-  folder,
-  variant,
-  onFileChange,
-  value,
-}: Props) => {
+const FileUpload = ({ type, placeholder, variant, onFileChange }: Props) => {
   const ikUploadRef = useRef<HTMLInputElement>(null);
   const abortController = new AbortController();
   const [file, setFile] = useState<File | null>(null);
@@ -67,7 +52,7 @@ const FileUpload = ({
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) {
-      return; // Không có file nào được chọn
+      return;
     }
     const fileSizeKB = file?.size / 1024;
     if (type === 'image') {
@@ -76,6 +61,7 @@ const FileUpload = ({
         return;
       } else {
         setFile(file);
+        handleUpload();
       }
     } else if (type === 'video') {
       if (fileSizeKB > 51200) {
@@ -88,15 +74,12 @@ const FileUpload = ({
   };
 
   const handleUpload = async () => {
-    // Access the file input element using the ref
     const fileInput = ikUploadRef.current;
     if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
       alert('Please select a file to upload');
       return;
     }
-    // Extract the first file from the file input
     const file = fileInput.files[0];
-    // Retrieve authentication parameters for the upload.
     let authParams;
     try {
       authParams = await authenticator();
@@ -105,26 +88,21 @@ const FileUpload = ({
       return;
     }
     const { signature, expire, token, publicKey } = authParams;
-    // Call the ImageKit SDK upload function with the required parameters and callbacks.
     try {
       const uploadResponse = await upload({
-        // Authentication parameters
         expire,
         token,
         signature,
         publicKey,
         file,
-        fileName: file.name, // Optionally set a custom file name
-        // Progress callback to update upload progress state
+        fileName: file.name,
         onProgress: (event) => {
           setProgress((event.loaded / event.total) * 100);
         },
-        // Abort signal to allow cancellation of the upload if needed.
         abortSignal: abortController.signal,
       });
-      console.log('Upload response:', uploadResponse);
+      onFileChange(uploadResponse?.url as string); // lấy đường dẫn gửi lên component cha
     } catch (error) {
-      // Handle specific error types provided by the ImageKit SDK.
       if (error instanceof ImageKitAbortError) {
         toast(`Upload aborted: ${error.reason}`);
       } else if (error instanceof ImageKitInvalidRequestError) {

@@ -1,7 +1,9 @@
+import { SessionProvider } from 'next-auth/react';
 import localFont from 'next/font/local';
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
+import { auth } from '@/auth';
 
 const imbPlexSans = localFont({
   src: [
@@ -28,15 +30,18 @@ export const metadata: Metadata = {
   description: 'Ở đây cho thuê đồ',
 };
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+const RootLayout = async ({ children }: { children: React.ReactNode }) => {
+  const sesstion = await auth();
   return (
     <html lang='en'>
-      <body
-        className={`${imbPlexSans.className} ${bebasNeue.variable} antialiased`}
-      >
-        {children}
-        <Toaster />
-      </body>
+      <SessionProvider session={sesstion}>
+        <body
+          className={`${imbPlexSans.className} ${bebasNeue.variable} antialiased`}
+        >
+          {children}
+          <Toaster />
+        </body>
+      </SessionProvider>
     </html>
   );
 };

@@ -1,5 +1,7 @@
 import { SubmitHandler, useForm, UseFormReturn } from 'react-hook-form';
 import { DefaultValues, FieldValues, Path } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 import { ZodType } from 'zod';
 import Link from 'next/link';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
@@ -24,13 +26,21 @@ const AuthForm = <T extends FieldValues>({
   defaultValues,
   onSubmit,
 }: IProps<T>) => {
-  const isSignIn = type === 'SIGN_IN';
+  const router = useRouter();
+  const isSignIn: boolean = type === 'SIGN_IN';
   const form: UseFormReturn<T> = useForm({
     resolver: zodResolver(schema),
     defaultValues: defaultValues as DefaultValues<T>,
   });
 
-  const handleSubmit: SubmitHandler<T> = async (data) => {};
+  const handleSubmit: SubmitHandler<T> = async (data) => {
+    const result = await onSubmit(data);
+    if (result.success) {
+      router.push('/');
+    } else {
+      toast.error(`Lỗi ${isSignIn ? 'đăng nhập' : 'đăng ký'} `);
+    }
+  };
 
   return (
     <div className='flex flex-col gap-4'>

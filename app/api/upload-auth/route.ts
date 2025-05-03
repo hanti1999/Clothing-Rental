@@ -1,5 +1,5 @@
-import config from '@/lib/config';
 import { getUploadAuthParams } from '@imagekit/next/server';
+import config from '@/lib/config';
 
 export async function GET() {
   const { token, expire, signature } = getUploadAuthParams({
