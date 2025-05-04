@@ -13,7 +13,7 @@ interface IClothing {
   videoUrl: string;
   summary: string;
   isLoaned?: boolean;
-  createdAt: Date | null;
+  createdAt?: Date | null;
 }
 
 interface AuthCredentials {

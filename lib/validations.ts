@@ -1,4 +1,5 @@
 import { z } from 'zod';
+// dùng cho form của Chadcn
 
 export const signUpSchema = z.object({
   fullName: z.string().min(3),
