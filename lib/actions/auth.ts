@@ -1,14 +1,14 @@
 'use server';
-import { eq } from 'drizzle-orm';
-import { db } from '@/database/drizzle';
-import { users } from '@/database/schema';
-import { hash } from 'bcryptjs';
-import { signIn } from '@/auth';
-import { headers } from 'next/headers';
-import ratelimit from '@/lib/ratelimit';
 import { redirect } from 'next/navigation';
-// import { workflowClient } from '@/lib/workflow';
+import { headers } from 'next/headers';
+import { eq } from 'drizzle-orm';
+import { hash } from 'bcryptjs';
+import { workflowClient } from '@/lib/workflow';
+import { users } from '@/database/schema';
+import { db } from '@/database/drizzle';
+import ratelimit from '@/lib/ratelimit';
 import config from '@/lib/config';
+import { signIn } from '@/auth';
 
 export const signInWithCredentials = async (
   params: Pick<AuthCredentials, 'email' | 'password'>
@@ -68,13 +68,13 @@ export const signUp = async (params: AuthCredentials) => {
       profileImage,
     });
 
-    // await workflowClient.trigger({
-    //   url: `${config.env.prodApiEndpoint}/api/workflows/onboarding`,
-    //   body: {
-    //     email,
-    //     fullName,
-    //   },
-    // });
+    await workflowClient.trigger({
+      url: `${config.env.prodApiEndpoint}/api/workflows/onboarding`,
+      body: {
+        email,
+        fullName,
+      },
+    });
 
     await signInWithCredentials({ email, password });
 

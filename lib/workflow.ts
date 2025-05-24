@@ -1,5 +1,5 @@
-import { Client as WorkflowClient } from '@upstash/workflow';
 import { Client as QStashClient, resend } from '@upstash/qstash';
+import { Client as WorkflowClient } from '@upstash/workflow';
 import config from '@/lib/config';
 
 export const workflowClient = new WorkflowClient({
@@ -26,7 +26,7 @@ export const sendEmail = async ({
       provider: resend({ token: config.env.resendToken }),
     },
     body: {
-      from: 'JS Mastery <contact@adrianjsmastery.com>',
+      from: 'Cloting Rental',
       to: [email],
       subject,
       html: message,

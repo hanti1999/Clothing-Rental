@@ -1,9 +1,9 @@
 import { SessionProvider } from 'next-auth/react';
 import localFont from 'next/font/local';
 import type { Metadata } from 'next';
-import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
 import { auth } from '@/auth';
+import './globals.css';
 
 const imbPlexSans = localFont({
   src: [
